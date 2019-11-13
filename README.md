@@ -43,7 +43,7 @@ c.JupyterLabCommands.commands = {'sample_command': convertMe}
 ## Install
 ```bash
 pip install jupyterlab_commands
-jupyter labextension install jupyterlab_commands
+jupyter labextension install @frontierkz/jupyterlab_commands
 jupyter serverextension enable --py jupyterlab_commands
 ```
 

@@ -48,6 +48,13 @@ const extension: JupyterFrontEndPlugin<void> = {
   requires: [IDocumentManager, ICommandPalette, ILayoutRestorer, IMainMenu, IFileBrowserFactory, INotebookTracker],
 };
 
+function getCookie(name) {
+    // From http://www.tornadoweb.org/en/stable/guide/security.html
+    const matches = document.cookie.match('\\b' + name + '=([^;]*)\\b');
+    return matches ? matches[1] : undefined;
+}
+
+
 function activate(app: JupyterFrontEnd,
                   docManager: IDocumentManager,
                   palette: ICommandPalette,
@@ -105,7 +112,7 @@ function activate(app: JupyterFrontEnd,
               return new Promise((resolve) => {
                 request("post",
                 PageConfig.getBaseUrl() + "commands/run?command=" + encodeURI(command),
-                {},
+                {_xsrf: getCookie('_xsrf')},
                 JSON.stringify({folder, path, model})).then(
                   // tslint:disable-next-line: no-shadowed-variable
                   (res: IRequestResult) => {
