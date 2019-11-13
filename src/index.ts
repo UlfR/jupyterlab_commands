@@ -48,7 +48,7 @@ const extension: JupyterFrontEndPlugin<void> = {
   requires: [IDocumentManager, ICommandPalette, ILayoutRestorer, IMainMenu, IFileBrowserFactory, INotebookTracker],
 };
 
-function getCookie(name) {
+function getCookie(name: String) {
     // From http://www.tornadoweb.org/en/stable/guide/security.html
     const matches = document.cookie.match('\\b' + name + '=([^;]*)\\b');
     return matches ? matches[1] : undefined;
