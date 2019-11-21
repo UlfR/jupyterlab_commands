@@ -165,3 +165,7 @@ ENV/
 .DS_Store
 yarn.lock
 .autoversion
+
+build
+dist
+node_modules
